@@ -15,13 +15,20 @@ struct ContentView: View {
             VStack {
                 Text("Pomodoro")
                     .font(.system(size: 40, weight: .heavy))
-                    .padding()
-//                    .border(Color.red, width: 5)
+//                    .padding() // this padding is affecting the below attributes
+                    .border(Color.red, width: 5)
                     
                 Image(systemName: "timer")
-                    .foregroundStyle(Color.red)
-//                    .frame(width: 100, height: 200)
-//                    .background(.white)
+                    .renderingMode(.original)
+                    .resizable()  // without this the image size is fixed though changing frame wont affect
+//                    .foregroundStyle(Color.red)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 150, height: 150)
+                    .background(.purple)
+                    .padding()
+                    .border(Color.pink, width: 1)
+
+//                Spacer()
             }
             .background(.white)
         }
